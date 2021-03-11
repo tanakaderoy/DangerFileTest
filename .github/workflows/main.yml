@@ -18,5 +18,6 @@ jobs:
           yarn install  --frozen-lockfile
     - name: Danger
       run: yarn danger ci
-      env: ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      env: 
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
