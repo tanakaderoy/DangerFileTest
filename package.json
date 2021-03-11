@@ -1,0 +1,12 @@
+{
+  "name": "DangerFileTest",
+  "version": "1.0.0",
+  "description": "danger test",
+  "main": "index.js",
+  "repository": "git@github.com:tanakaderoy/DangerFileTest.git",
+  "author": "tanakaderoy <42681052+tanakaderoy@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "danger": "^10.6.3"
+  }
+}
