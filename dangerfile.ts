@@ -4,7 +4,9 @@ const fs = require('fs');
 const modifiedMD = danger.git.modified_files.join('- ');
 message('Changed Files in this PR: \n - ' + modifiedMD);
 
-const modifiedFiles = danger.git.modified_files;
+const modifiedFiles = danger.git.modified_files.concat(
+  danger.git.created_files
+);
 
 modifiedFiles.forEach(file => {
   try {
