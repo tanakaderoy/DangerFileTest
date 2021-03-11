@@ -1,23 +1,22 @@
 name: Node CI
 on: [pull_request]
+jobs: 
+  job-danger:
+    name: danger something
+    runs-on: macOs-latest
+    steps:
+    - name: git checkout
+    - uses: actions/checkout@v1
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.1
+    - name: install yarn
+      run: npm install -g yarn
+    - name: yarn install, build, and test
+      run: |
+          yarn install  --frozen-lockfile
+    - name: Danger
+      run: yarn danger ci
+      env: ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
-jobs:
-test:
-runs-on: ubuntu-latest
-
-steps:
-- uses: actions/checkout@master
-- name: Use Node.js 10.x
-uses: actions/setup-node@v1
-with:
-node-version: 10.x
-- name: install yarn
-run: npm install -g yarn
-- name: yarn install, build, and test
-run: |
-yarn install  --frozen-lockfile
-yarn build
-yarn test
-- name: Danger
-run: yarn danger ci
-env: GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
